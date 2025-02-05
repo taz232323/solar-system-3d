@@ -42600,7 +42600,7 @@ document.body.appendChild(tooltip);
 // ===== Helper: Create an Orbit Group =====
 function createPlanetOrbit(orbitRadius, planetMesh) {
   var orbitGroup = new THREE.Object3D();
-  // Place the planet along the X-axis at the specified orbit radius.
+  // Place the planet along the X-axis at the orbit radius.
   planetMesh.position.set(orbitRadius, 0, 0);
   orbitGroup.add(planetMesh);
   scene.add(orbitGroup);
@@ -42695,6 +42695,7 @@ planetsData.forEach(function (planetData) {
     });
   }
   var planetMesh = new THREE.Mesh(geometry, material);
+
   // Save tooltip data on the mesh.
   planetMesh.userData = {
     name: planetData.name,
@@ -42709,7 +42710,7 @@ planetsData.forEach(function (planetData) {
     speed: planetData.rotationSpeed
   });
 
-  // If the planet should have a moon (like Earth), add one.
+  // If the planet has a moon (like Earth), add one.
   if (planetData.hasMoon) {
     var moonGeometry = new THREE.SphereGeometry(0.27, 32, 32);
     var moonTexture = textureLoader.load("https://threejs.org/examples/textures/moon_1024.jpg");
@@ -42727,7 +42728,7 @@ planetsData.forEach(function (planetData) {
     });
   }
 
-  // If the planet should have rings (like Saturn), add them.
+  // If the planet has rings (like Saturn), add them.
   if (planetData.hasRings) {
     var ringGeometry = new THREE.RingGeometry(planetData.planetRadius * 1.2, planetData.planetRadius * 1.8, 32);
     var ringMaterial = new THREE.MeshBasicMaterial({
@@ -42823,7 +42824,7 @@ function showGifOverlay() {
   gifOverlay.innerHTML = "<img src=\"https://media.giphy.com/media/oImOwaZ34b8K70aQ6B/giphy.gif\" style=\"max-width:100%; max-height:80vh;\" alt=\"Mars GIF\" />";
   gifOverlay.style.display = "block";
 
-  // Hide the GIF overlay after 5 seconds.
+  // Hide the overlay after 5 seconds.
   setTimeout(function () {
     gifOverlay.style.display = "none";
   }, 5000);
@@ -42853,7 +42854,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50126" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62459" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
